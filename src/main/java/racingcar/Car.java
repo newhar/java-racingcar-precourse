@@ -3,32 +3,31 @@ package racingcar;
 import java.util.Objects;
 
 public class Car {
-    private String name;
-    private int position;
+    private final Name name;
+    private Position position;
 
     public Car(String name) {
-        name = name;
-        position = 0;
+        this.name = new Name(name);
+        this.position = new Position(0);
     }
 
     public Car(String name, int position) {
-        name = name;
-        this.position = position;
+        this.name = new Name(name);
+        this.position = new Position(position);
     }
 
-    public Car race(int randomNumber) {
+    public void race(int randomNumber) {
         if (isMovable(randomNumber)) {
-            return move();
+            move();
         }
-        return this;
     }
 
     public boolean isMovable(int randomNumber) {
         return randomNumber >= 4;
     }
 
-    private Car move() {
-        return new Car(name, position + 1);
+    private void move() {
+        position = position.next();
     }
 
     @Override
@@ -36,7 +35,7 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return position == car.position && Objects.equals(name, car.name);
+        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,6 +26,44 @@ public class RacingTrack {
         }
     }
 
+    public List<Car> findWinners() {
+        Position maxPosition = findMaxPosition();
+
+        return findWinners(maxPosition);
+    }
+
+    public int[] generateRandomNumbers(int numberOfRandomNumbers) {
+        int[] randomNumbers = new int[cars.size()];
+
+        for (int idx = 0; idx < cars.size(); idx++) {
+            randomNumbers[idx] = Randoms.pickNumberInRange(0, 9);
+        }
+
+        return randomNumbers;
+    }
+
+    private Position findMaxPosition() {
+        Position maxPosition = new Position(0);
+
+        for (Car car : cars) {
+            maxPosition = car.getLargerPosition(maxPosition);
+        }
+
+        return maxPosition;
+    }
+
+    private List<Car> findWinners(Position maxPosition) {
+        List<Car> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.isMaxPosition(maxPosition)) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,5 +76,4 @@ public class RacingTrack {
     public int hashCode() {
         return Objects.hash(cars);
     }
-
 }

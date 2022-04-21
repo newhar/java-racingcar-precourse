@@ -24,6 +24,17 @@ public class Car {
         }
     }
 
+    public Position getLargerPosition(Position maxPosition) {
+        if(this.position.value() < maxPosition.value() ) {
+            return maxPosition;
+        }
+        return this.position;
+    }
+
+    public boolean isMaxPosition(Position comparisonPosition) {
+        return this.position.equals(comparisonPosition);
+    }
+
     private void move() {
         position = position.next();
     }
@@ -40,4 +51,7 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name, position);
     }
+
+
+
 }

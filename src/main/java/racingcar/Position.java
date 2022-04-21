@@ -13,6 +13,10 @@ public class Position {
         this.position = position;
     }
 
+    public int value() {
+        return this.position;
+    }
+
     public Position next() {
         return new Position(position + 1);
     }
@@ -29,4 +33,5 @@ public class Position {
     public int hashCode() {
         return Objects.hash(position);
     }
+
 }

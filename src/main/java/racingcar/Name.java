@@ -10,6 +10,10 @@ public class Name {
             throw new IllegalArgumentException();
         }
 
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+
         this.name = name;
     }
 

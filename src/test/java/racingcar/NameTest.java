@@ -18,6 +18,11 @@ class NameTest {
     }
 
     @Test
+    void 예외테스트_이름_5자초과_경우() {
+        assertThatThrownBy(() -> new Name("abcder")).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 예외테스트_이름_null인경우() {
         assertThatThrownBy(() -> new Name(null)).isInstanceOf(IllegalArgumentException.class);
     }

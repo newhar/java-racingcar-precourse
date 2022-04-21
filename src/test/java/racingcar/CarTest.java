@@ -1,48 +1,53 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CarTest {
+class CarTest {
 
-    @Test
-    void 차_생성() {
-        Car car = new Car("newhar");
+    private String carName1 = "jin";
+    private Car car1;
 
-        assertThat(car).isInstanceOf(Car.class);
-        assertThat(car).isEqualTo(new Car("newhar", 0));
+
+    @BeforeEach
+    void setUp() {
+        car1 = new Car(carName1);
     }
 
     @Test
-    void 예외테스트_차이동_음수_전달받을경우() {
-        Car car = new Car("newhar");
+    @DisplayName("자동차_이동")
+    void race() {
+        car1.race(RandomNumber.of(7));
 
-        assertThatThrownBy(() -> car.race(RandomNumber.of(-1))).isInstanceOf(IllegalArgumentException.class);
+        assertThat(car1).isEqualTo(new Car(carName1, 1));
     }
 
     @Test
-    void 예외테스트_차이동_범위초과_전달받을경우() {
-        Car car = new Car("newhar");
+    @DisplayName("자동차_이동하지않음")
+    void race2() {
+        car1.race(RandomNumber.of(0));
 
-        assertThatThrownBy(() -> car.race(RandomNumber.of(99))).isInstanceOf(IllegalArgumentException.class);
+        assertThat(car1).isEqualTo(new Car(carName1, 0));
     }
 
     @Test
-    void 차이동_전진할_경우() {
-        Car car = new Car("newhar");
-        car.race(RandomNumber.of(9));
+    @DisplayName("더큰이동거리_반환")
+    void getLargerPosition() {
+        car1.race(RandomNumber.of(7));
+        car1.race(RandomNumber.of(9));
 
-        assertThat(car).isEqualTo(new Car("newhar", 1));
+        assertThat(car1.getLargerPosition(new Position(7))).isEqualTo(new Position(7));
     }
 
     @Test
-    void 차이동_안하는_경우() {
-        Car car = new Car("newhar");
-        car.race(RandomNumber.of(0));
+    @DisplayName("최대거리인지확인")
+    void isSamePosition() {
+        car1.race(RandomNumber.of(7));
 
-        assertThat(car).isEqualTo(new Car("newhar", 0));
+        assertThat(car1.isSamePosition(new Position(1))).isEqualTo(true);
     }
-
 }

@@ -3,6 +3,8 @@ package racingcar;
 import java.util.Objects;
 
 public class Car {
+    private static final int MOVING_CRITERION = 4;
+
     private final Name name;
     private Position position;
 
@@ -16,14 +18,10 @@ public class Car {
         this.position = new Position(position);
     }
 
-    public void race(int randomNumber) {
-        if (isMovable(randomNumber)) {
+    public void race(RandomNumber randomNumber) {
+        if (randomNumber.isOver(MOVING_CRITERION)) {
             move();
         }
-    }
-
-    public boolean isMovable(int randomNumber) {
-        return randomNumber >= 4;
     }
 
     private void move() {

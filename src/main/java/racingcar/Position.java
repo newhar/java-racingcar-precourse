@@ -6,6 +6,10 @@ public class Position {
     private final int position;
 
     public Position(int position) {
+        if (position < 0) {
+            throw new IllegalArgumentException();
+        }
+
         this.position = position;
     }
 

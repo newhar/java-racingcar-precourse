@@ -52,6 +52,4 @@ public class Car {
         return Objects.hash(name, position);
     }
 
-
-
 }

@@ -56,12 +56,16 @@ public class RacingTrack {
         List<Car> winners = new ArrayList<>();
 
         for (Car car : cars) {
-            if (car.isMaxPosition(maxPosition)) {
-                winners.add(car);
-            }
+            addWhenThisCarIsWinner(car, maxPosition, winners);
         }
 
         return winners;
+    }
+
+    private void addWhenThisCarIsWinner(Car car, Position maxPosition, List<Car> winners) {
+        if (car.isMaxPosition(maxPosition)) {
+            winners.add(car);
+        }
     }
 
     @Override

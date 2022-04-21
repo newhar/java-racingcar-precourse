@@ -60,4 +60,13 @@ class RacingTrackTest {
 
         assertThat(racingTrack.findWinners()).isEqualTo(Arrays.asList(new Car("b",3), new Car("c", 3)));
     }
+
+    @Test
+    void temp() {
+        List<Car> temp = new ArrayList<>();
+
+        temp.add(new Car("a"));
+        temp.add(null);
+        assertThat(temp).isEqualTo(Arrays.asList(new Car("a"),null));
+    }
 }

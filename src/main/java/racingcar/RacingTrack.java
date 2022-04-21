@@ -5,19 +5,23 @@ import java.util.List;
 import java.util.Objects;
 
 public class RacingTrack {
-    Cars cars;
+    List<Car> cars = new ArrayList<>();
 
-    public RacingTrack(Cars cars) {
+    public RacingTrack() {
+    }
+
+    public RacingTrack(List<Car> cars) {
         this.cars = cars;
     }
 
-    public RacingTrack() {
-        this.cars = new Cars();
+    public void addCar(Car car) {
+        cars.add(car);
     }
 
-
-    public void addCar(Car car) {
-        cars.addCar(car);
+    public void race(int[] randomNumbers) {
+        for (Car car : cars) {
+            car.race(RandomNumber.of(randomNumbers[cars.indexOf(car)]));
+        }
     }
 
     @Override
@@ -32,4 +36,5 @@ public class RacingTrack {
     public int hashCode() {
         return Objects.hash(cars);
     }
+
 }

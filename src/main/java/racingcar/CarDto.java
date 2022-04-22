@@ -1,8 +1,8 @@
 package racingcar;
 
 public class CarDto {
-    String name;
-    int position;
+    private String name;
+    private int position;
 
     public CarDto(String name, int position) {
         this.name = name;

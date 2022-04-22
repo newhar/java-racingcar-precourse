@@ -17,7 +17,7 @@ public class InputView {
         try {
             validateCarNames(input);
         } catch (IllegalArgumentException e) {
-            System.out.println("잘못된 입력입니다. 공백을 입력하면 안됩니다.");
+            System.out.println("[ERROR]" + e.getMessage());
             getCarNames();
         }
 
@@ -25,8 +25,9 @@ public class InputView {
     }
 
     private void validateCarNames(String input) {
-        if (input == null || input.isEmpty()) {
-            throw new IllegalArgumentException();
+//        System.out.println(input,SPLIT_DELIMITER, input == SPLIT_DELIMITER);
+        if (input == null || input.isEmpty() || input.equals(SPLIT_DELIMITER)) {
+            throw new IllegalArgumentException("최소한 하나 이상의 이름을 입력해야합니다.");
         }
     }
 
@@ -36,7 +37,7 @@ public class InputView {
         try {
             return parseIntFromInput(input);
         } catch (IllegalArgumentException e) {
-            System.out.println("양의 숫자만 입력할 수 있습니다.");
+            System.out.println("[ERROR]" + e.getMessage());
             return getTryCount();
         }
     }
@@ -44,7 +45,7 @@ public class InputView {
     private int parseIntFromInput(String input) {
         int parsed = getParsed(input);
         if (parsed < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("양수만 입력할 수 있습니다.");
         }
 
         return parsed;
@@ -55,7 +56,7 @@ public class InputView {
         try {
             parsed = Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
         }
         return parsed;
     }

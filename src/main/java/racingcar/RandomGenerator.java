@@ -2,19 +2,17 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RandomGenerator {
+    private static final int MINIMUM_RANGE_OF_RANDOM_NUMBER = 0;
+    private static final int MAXIMUM_RANGE_OF_RANDOM_NUMBER = 9;
+    private static final int ZERO = 0;
 
     public static int[] generate(int numberOfGenerated) {
-//        List<Integer> randomNumbers = new ArrayList<>();
 
         int[] randomNumbers = new int[numberOfGenerated];
 
-        for (int idx = 0; idx < numberOfGenerated; idx++) {
-//            randomNumbers.add(Randoms.pickNumberInRange(0, 9));
-            randomNumbers[idx] = Randoms.pickNumberInRange(0, 9);
+        for (int idx = ZERO; idx < numberOfGenerated; idx++) {
+            randomNumbers[idx] = Randoms.pickNumberInRange(MINIMUM_RANGE_OF_RANDOM_NUMBER, MAXIMUM_RANGE_OF_RANDOM_NUMBER);
         }
 
         return randomNumbers;

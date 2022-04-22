@@ -10,8 +10,8 @@ public class OutputView {
     private static final String NAME_POSITION_DELIMETER = " : ";
     private static final String WINNER_RESLUT_END_MESSAGE = "최종 우승자: ";
     private static final String WINNER_RESLUT_START_MESSAGE = "\n실행 결과";
-    private static final String EMPTY_STRING="";
-    private static final String LINE_BREAK="\n";
+    private static final String EMPTY_STRING = "";
+    private static final String LINE_BREAK = "\n";
 
     public void printStartMessage() {
         System.out.println(WINNER_RESLUT_START_MESSAGE);
@@ -19,7 +19,7 @@ public class OutputView {
 
     public void printRoundResult(CarsDto carsDto) {
         StringBuilder roundResult = new StringBuilder();
-        for (CarDto carDto : carsDto.cars) {
+        for (CarDto carDto : carsDto.getCars()) {
             String roundMessage = String.join(NAME_POSITION_DELIMETER, carDto.getName(), getVisualizedPosition(carDto.getPosition()));
             roundResult.append(roundMessage);
             roundResult.append(LINE_BREAK);

@@ -3,7 +3,7 @@ package racingcar;
 import java.util.List;
 
 public class CarsDto {
-    List<CarDto> cars;
+    private List<CarDto> cars;
 
     public CarsDto(List<CarDto> cars) {
         this.cars = cars;

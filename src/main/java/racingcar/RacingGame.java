@@ -1,16 +1,30 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RacingGame {
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
+
     private Cars cars;
-    private final InputView inputView = InputView.getInstance();
 
     public void play() {
-//        cars = new Cars();
-        inputView.getCarNames();
-        inputView.getTryCount();
+        cars = new Cars(inputView.getCarNames());
+        int tryCount = inputView.getTryCount();
 
-//        cars.race(inputView.getTryCount());
+        outputView.printStartMessage();
+        while(tryCount > 0) {
+            cars.raceOneRound(RandomGenerator.generate(cars.size()));
+            tryCount -= 1;
+            outputView.printRoundResult(cars.toDto());
+        }
 
-//        OutPutView.PrintWinners(racingTrack.findWinners());
+        List<CarDto> winners = new ArrayList<>();
+        for (Car winner : cars.findWinners()) {
+            winners.add(winner.toDto());
+        }
+        outputView.printWinners(winners);
     }
+
 }

@@ -31,6 +31,10 @@ public class Car {
         return this.position;
     }
 
+    public CarDto toDto() {
+        return new CarDto(this.name.value(), this.position.value());
+    }
+
     public boolean isSamePosition(Position comparisonPosition) {
         return this.position.equals(comparisonPosition);
     }
@@ -51,5 +55,4 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name, position);
     }
-
 }

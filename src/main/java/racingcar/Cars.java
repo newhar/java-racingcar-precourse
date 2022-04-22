@@ -24,12 +24,21 @@ public class Cars {
 
     public void race(int tryCount) {
         while(tryCount > 0) {
-            raceOneRound(generateRandomNumbers(cars.size()));
             tryCount -= 1;
+            raceOneRound(generateRandomNumbers());
         }
     }
 
-    public void raceOneRound(int[] randomNumbers) {
+    public CarsDto toDto() {
+        List<CarDto> carsDto = new ArrayList<>();
+        for( Car car : this.cars) {
+            carsDto.add(car.toDto());
+        }
+        return new CarsDto(carsDto);
+    }
+
+
+     public void raceOneRound(int[] randomNumbers) {
         for (Car car : cars) {
             car.race(RandomNumber.of(randomNumbers[cars.indexOf(car)]));
         }
@@ -41,7 +50,7 @@ public class Cars {
         return findWinners(maxPosition);
     }
 
-    public int[] generateRandomNumbers(int numberOfRandomNumbers) {
+    private int[] generateRandomNumbers() {
         int[] randomNumbers = new int[cars.size()];
 
         for (int idx = 0; idx < cars.size(); idx++) {
@@ -89,4 +98,9 @@ public class Cars {
     public int hashCode() {
         return Objects.hash(cars);
     }
+
+    public int size() {
+        return cars.size();
+    }
+
 }

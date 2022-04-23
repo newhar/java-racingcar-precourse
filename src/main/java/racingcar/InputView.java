@@ -9,6 +9,7 @@ public class InputView {
     private static final String SPLIT_DELIMITER = ",";
     private static final String GET_CARS_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String GET_TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final int ZERO = 0;
 
     public List<String> getCarNames() {
         System.out.println(GET_CARS_NAME_MESSAGE);
@@ -25,7 +26,6 @@ public class InputView {
     }
 
     private void validateCarNames(String input) {
-//        System.out.println(input,SPLIT_DELIMITER, input == SPLIT_DELIMITER);
         if (input == null || input.isEmpty() || input.equals(SPLIT_DELIMITER)) {
             throw new IllegalArgumentException("최소한 하나 이상의 이름을 입력해야합니다.");
         }
@@ -44,7 +44,7 @@ public class InputView {
 
     private int parseIntFromInput(String input) {
         int parsed = getParsed(input);
-        if (parsed < 0) {
+        if (parsed < ZERO) {
             throw new IllegalArgumentException("양수만 입력할 수 있습니다.");
         }
 

@@ -3,6 +3,8 @@ package racingcar;
 import java.util.Objects;
 
 public class Position {
+    private static final int NEXT_POSITION_VALUE = 1;
+
     private final int position;
 
     public Position(int position) {
@@ -18,7 +20,7 @@ public class Position {
     }
 
     public Position next() {
-        return new Position(position + 1);
+        return new Position(position + NEXT_POSITION_VALUE);
     }
 
     @Override

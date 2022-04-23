@@ -9,8 +9,8 @@ public class RandomNumber {
     private static Map<Integer, RandomNumber> cachedNumber = new HashMap<>();
 
     static {
-        for (int i = MINIMUM_RANGE_OF_RANDOM_NUMBER; i <= MAXIMUM_RANGE_OF_RANDOM_NUMBER; i++) {
-            cachedNumber.put(i, new RandomNumber(i));
+        for (int idx = MINIMUM_RANGE_OF_RANDOM_NUMBER; idx <= MAXIMUM_RANGE_OF_RANDOM_NUMBER; idx++) {
+            cachedNumber.put(idx, new RandomNumber(idx));
         }
     }
 
@@ -29,6 +29,6 @@ public class RandomNumber {
     }
 
     public boolean isOver(int criterion) {
-        return this.number > criterion;
+        return this.number >= criterion;
     }
 }

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,7 @@ import java.util.Map;
 public class RandomNumber {
     private static final int MINIMUM_RANGE_OF_RANDOM_NUMBER = 0;
     private static final int MAXIMUM_RANGE_OF_RANDOM_NUMBER = 9;
+
     private static Map<Integer, RandomNumber> cachedNumber = new HashMap<>();
 
     static {

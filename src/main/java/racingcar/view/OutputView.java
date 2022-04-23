@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.domain.CarDto;
+import racingcar.domain.CarsDto;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class OutputView {

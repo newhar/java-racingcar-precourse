@@ -1,14 +1,15 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.Objects;
 
 public class Position {
     private static final int NEXT_POSITION_VALUE = 1;
+    private static final int ZERO = 0;
 
     private final int position;
 
     public Position(int position) {
-        if (position < 0) {
+        if (position < ZERO) {
             throw new IllegalArgumentException();
         }
 

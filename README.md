@@ -18,21 +18,23 @@
 
 ## 구현 기능 목록
 * Contoller
-  * 레이싱 게임 (RacingGame)
+  * 레이싱 게임 (RacingGameController)
     * 게임을 시작한다
     * 사용자로부터 입력을 받도록 한다.
     * 게임의 결과를 출력하도록 한다.
 * Model
-  * 차 (Car) 
+  * 차 (Car - Name,Position) 
     * 레이스별 주어진 숫자에 따라 이동한다.
     * 레이스별 주어진 숫자의 유효성을 검증한다.
     * 이름의 유효성을 검증한다.
-  * 경기장 (RacingTrack)
+  * 경기장 (Cars - List<Car>)
     * 자동차를 추가한다. 
     * 라운드를 진행한다. 
       * 임의의 숫자를 생성한다.
       * 참가한 자동차들에게 임의의 숫자를 전달한다.
     * 우승자를 알려준다.
+  * 임의숫자 (RandomNumber)
+    * 캐시된 임의 숫자 값을 가진다.
 * View
   * 입력창 (InputView) 
     * 참가하는 자동차의 이름을 입력받는다.
@@ -41,6 +43,9 @@
     * 현재 상황을 나타낸다.
     * n명의 우승자를 나타낸다.
     * 에러를 나타낸다.
+* Util
+  * 랜덤넘버 생성기 (RandomNumberGenerator)
+    * 0~9 사이의 숫자들을 생성한다.
     
 ## 프로그래밍 요구사항 1
 * 자동차 경주 게임을 실행하는 시작점은 src/main/java 폴더의 racinggame.Application의 main()이다. •자동차 경주 게임은 JDK 8 버전에서 실행가능해야 한다. JDK 8에서 정상 동작하지 않을 경우 0점 처리한다. •JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils에서 제공하

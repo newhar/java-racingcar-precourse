@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Cars {
+    private static final int START_POSITION = 0;
+
     private List<Car> cars = new ArrayList<>();
 
     public Cars() {
@@ -45,7 +47,7 @@ public class Cars {
     }
 
     private Position findMaxPosition() {
-        Position maxPosition = new Position(0);
+        Position maxPosition = new Position(START_POSITION);
 
         for (Car car : cars) {
             maxPosition = car.getLargerPosition(maxPosition);

@@ -25,9 +25,9 @@ public class Car {
         }
     }
 
-    public Position getLargerPosition(Position maxPosition) {
-        if(this.position.value() < maxPosition.value() ) {
-            return maxPosition;
+    public Position getLargerPosition(Position comparisionPosition) {
+        if(this.position.value() < comparisionPosition.value() ) {
+            return comparisionPosition;
         }
         return this.position;
     }

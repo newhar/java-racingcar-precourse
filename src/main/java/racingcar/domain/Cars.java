@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Cars {
-    List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
 
     public Cars() {
     }

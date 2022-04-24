@@ -28,7 +28,6 @@ public class Cars {
         return new CarsDto(carsDto);
     }
 
-
     public void raceOneRound(int[] randomNumbers) {
         for (Car car : cars) {
             car.race(RandomNumber.of(randomNumbers[cars.indexOf(car)]));
@@ -39,6 +38,10 @@ public class Cars {
         Position maxPosition = findMaxPosition();
 
         return findWinners(maxPosition);
+    }
+
+    public int size() {
+        return cars.size();
     }
 
     private Position findMaxPosition() {
@@ -78,10 +81,6 @@ public class Cars {
     @Override
     public int hashCode() {
         return Objects.hash(cars);
-    }
-
-    public int size() {
-        return cars.size();
     }
 
 }

@@ -13,7 +13,7 @@ public class OutputView {
     private static final String WINNER_RESLUT_END_MESSAGE = "최종 우승자: ";
     private static final String WINNER_RESLUT_START_MESSAGE = "\n실행 결과";
     private static final String LINE_BREAK = "\n";
-    private static final int ZERO = 0;
+    private static final int START_POSITION = 0;
 
     public void printStartMessage() {
         System.out.println(WINNER_RESLUT_START_MESSAGE);
@@ -44,7 +44,7 @@ public class OutputView {
 
     private String getVisualizedPosition(int position) {
         StringBuilder visualPosition = new StringBuilder();
-        for (int idx = ZERO; idx < position; idx++) {
+        for (int idx = START_POSITION; idx < position; idx++) {
             visualPosition.append(VISUALIZE_DELIMETER);
         }
         return visualPosition.toString();
